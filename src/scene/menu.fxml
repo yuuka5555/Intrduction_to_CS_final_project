@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scene.menuController">
+   <children>
+      <Button layoutX="200.0" layoutY="400.0" mnemonicParsing="false" onAction="#enterGame" prefHeight="50.0" prefWidth="200.0" text="Play" />
+   </children>
+</AnchorPane>
