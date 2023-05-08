@@ -15,7 +15,7 @@ public class MapSwitcher {
 	private String baseMapName = "/scene/map";
 	private Group root;
 	public int curMap = 1;
-	private int maxMap = 2;
+	public int maxMap = 3;
 	
 	public ArrayList<Rectangle> obstacles;
 	
@@ -37,8 +37,12 @@ public class MapSwitcher {
 	}
 	
 	public boolean goDown() throws IOException {
-		if (curMap == 1) return false;
-		else curMap--;
+		if (curMap == 1) {
+			return false;
+		}
+		else {
+			curMap--;
+		}
 		
 		attachNewMap();
 		return true;
@@ -56,16 +60,15 @@ public class MapSwitcher {
 		// put in the new map
 		list.add(fxmlScene);
 		
-		//is node just read rectangle?
+		// re-put the character in
+		list.add(chara);
+		
 		obstacles.clear();
 		for (Node n: fxmlRoot.getChildrenUnmodifiable()) {
 			if (n instanceof Rectangle) {
 				obstacles.add((Rectangle) n);
 			}
 		}
-		
-		// re-put the character in
-		list.add(chara);
 	}
 	
 	public void attachNewMap() throws IOException {
