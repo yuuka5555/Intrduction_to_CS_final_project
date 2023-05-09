@@ -16,6 +16,8 @@ public class Character {
 	double bottom = 680;
 	double time = 0;
 	double goalY = 700;
+	double charaWidth = 30;
+	double charaHeight = 50;
 	boolean canJump = true;
 	boolean canMove = true;
 	public boolean win = false;
@@ -49,8 +51,7 @@ public class Character {
 	
 	//claim character
 	public Character(ArrayList<Rectangle> obstacles) {
-		c = new Rectangle(290, 630, 20, 50);
-		c.setFill(Color.BLUE);
+		c = new Rectangle(300 - (charaWidth / 2), 680 - charaHeight, charaWidth, charaHeight);
 		this.obstacles = obstacles;
 	}
 	
@@ -162,7 +163,7 @@ public class Character {
 					c.setY(c.getY()+5);
 					jumpX();
 				} else if (onTheFloor() && !canJump) {
-					timeInTheAir = 161;
+					timeInTheAir = 80;
 					canJump = true;
 				} else {
 					jumping.stop();
@@ -170,12 +171,6 @@ public class Character {
 					canMove = true;
 					time = 0;
 				}
-				
-				if (win) {
-					
-				}
-
-//				}
 			}
 		};
 		jumping.start();
@@ -210,14 +205,14 @@ public class Character {
 	
 	//step on the floor
 	public boolean onTheFloor() {
-		if (curMap == 1 && c.getY() == 630) {
-			c.setY(630);
+		if (curMap == 1 && c.getY() == 680 - charaHeight) {
+			c.setY(680 - charaHeight);
 			return true;
 		}
 		
 		for (int i = 0; i < obstacles.size(); i++) {
 			Rectangle temp = obstacles.get(i);			
-			if (c.getY() == temp.getY()-50 && c.getX() > temp.getX()-10 && c.getX() < temp.getX()+temp.getWidth()-10) {
+			if (c.getY() == temp.getY()-charaHeight && c.getX() >= temp.getX()-(charaWidth/2) && c.getX() <= temp.getX()+temp.getWidth()-(charaWidth/2)) {
 				if (curMap == maxMap && temp.getY() == goalY) {
 					win = true;
 				}
@@ -247,7 +242,7 @@ public class Character {
 	public void wall() {
 		if (c.getX() <= 0) {
 			direction = 'r';
-		} else if (c.getX() >= 580) {
+		} else if (c.getX() >= 550) {
 			direction = 'l';
 		}
 	}
@@ -262,7 +257,7 @@ public class Character {
 	
 	//hit the left wall when on the floor
 	public boolean wallR() {
-		if (c.getX() >= 580) {
+		if (c.getX() >= 550) {
 			return true;
 		}
 		return false;
@@ -272,7 +267,7 @@ public class Character {
 	public boolean hit() {
 		for (int i = 0; i < obstacles.size(); i++) {
 			Rectangle temp = obstacles.get(i);
-			if (c.getY() == temp.getY()+20 && c.getX() <= temp.getX()+temp.getWidth() && c.getX() >= temp.getX()-20) {
+			if (c.getY() == temp.getY()+20 && c.getX() <= temp.getX()+temp.getWidth() && c.getX() >= temp.getX()-charaWidth) {
 				return true;
 			}
 		}
@@ -283,9 +278,9 @@ public class Character {
 	public boolean hitSide() {
 		for (int i = 0; i < obstacles.size(); i++) {
 			Rectangle temp = obstacles.get(i);
-			if (direction == 'l' && c.getY() > temp.getY()-50 && c.getY() < temp.getY()+20 && c.getX() >= temp.getX()+temp.getWidth() && c.getX() < temp.getX()+temp.getWidth()+3) {
+			if (direction == 'l' && c.getY() >= temp.getY()-charaHeight && c.getY() <= temp.getY()+20 && c.getX() > temp.getX()+temp.getWidth()-(charaWidth/2) && c.getX() <= temp.getX()+temp.getWidth()) {
 				return true;
-			} else if (direction == 'r' && c.getY() > temp.getY()-50 && c.getY() < temp.getY()+20 && c.getX() > temp.getX()-23 && c.getX() <= temp.getX()-20) {
+			} else if (direction == 'r' && c.getY() >= temp.getY()-charaHeight && c.getY() < temp.getY()+20 && c.getX() >= temp.getX()-charaWidth && c.getX() < temp.getX()+(charaWidth/2)) {
 				return true;
 			}
 		}
