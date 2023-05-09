@@ -3,7 +3,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" stroke="BLACK" strokeType="INSIDE" width="200.0" x="100.0" y="650.0" />
@@ -11,6 +10,6 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" stroke="BLACK" strokeType="INSIDE" width="200.0" x="350.0" y="400.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" stroke="BLACK" strokeType="INSIDE" width="200.0" x="50.0" y="350.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" stroke="BLACK" strokeType="INSIDE" width="100.0" x="400.0" y="250.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff3636" height="20.0" stroke="BLACK" strokeType="INSIDE" width="200.0" x="200.0" y="100.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff2121" height="20.0" stroke="BLACK" strokeType="INSIDE" width="200.0" x="200.0" y="100.0" />
    </children>
 </AnchorPane>

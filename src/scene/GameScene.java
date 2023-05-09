@@ -2,24 +2,34 @@ package scene;
 
 import javafx.animation.AnimationTimer;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
+
 import final_project.Character;
+import final_project.MusicController;
 
 public class GameScene {
 	Scene s;
 	Group root = new Group();
 	ArrayList<Rectangle> obstacles = new ArrayList<>();
+	
 	MapSwitcher mapHandler = new MapSwitcher(root, obstacles);
 	
 	int curMap = mapHandler.curMap;
 	int maxMap = mapHandler.maxMap;
-	Character chara = new Character(obstacles);
+	
+	String name = "professor";
+	Character chara = new Character(obstacles, name);
+	
+	private MusicController mc = new MusicController();
 	
 	public GameScene() throws IOException {
 		s = new Scene(root, 600, 700, Color.TRANSPARENT);
@@ -27,6 +37,7 @@ public class GameScene {
 		loadMap();
 		over.start();
 		chara.setMaxMap(maxMap);
+		mc.play("src/music/" + chara.name + ".mp3");
 	}
 	
 	private void loadCharacter() {
@@ -62,6 +73,8 @@ public class GameScene {
 				}
 			} else if (chara.win) {
 				try {
+					mc.stop();
+					mc.playApplause();
 					Parent end = FXMLLoader.load(getClass().getResource("end.fxml"));
 					root.getChildren().add(end);
 					over.stop();

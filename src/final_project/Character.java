@@ -6,7 +6,6 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 public class Character {
@@ -21,6 +20,7 @@ public class Character {
 	boolean canJump = true;
 	boolean canMove = true;
 	public boolean win = false;
+	public String name = "professor";
 	char direction = 'n';
 	
 	public Rectangle c;
@@ -50,9 +50,10 @@ public class Character {
 	};
 	
 	//claim character
-	public Character(ArrayList<Rectangle> obstacles) {
+	public Character(ArrayList<Rectangle> obstacles, String name) {
 		c = new Rectangle(300 - (charaWidth / 2), 680 - charaHeight, charaWidth, charaHeight);
 		this.obstacles = obstacles;
+		this.name = name;
 	}
 	
 	//moving command determined
