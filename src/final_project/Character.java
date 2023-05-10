@@ -4,8 +4,11 @@ import java.util.ArrayList;
 import javafx.animation.AnimationTimer;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 public class Character {
@@ -15,8 +18,8 @@ public class Character {
 	double bottom = 680;
 	double time = 0;
 	double goalY = 700;
-	double charaWidth = 30;
-	double charaHeight = 50;
+	double charaWidth = 40;
+	double charaHeight = 45;
 	boolean canJump = true;
 	boolean canMove = true;
 	public boolean win = false;
@@ -24,6 +27,8 @@ public class Character {
 	char direction = 'n';
 	
 	public Rectangle c;
+	public ImageView imgView;
+	public Image img;
 
 	private AnimationTimer jumping;
 	
@@ -50,8 +55,15 @@ public class Character {
 	};
 	
 	//claim character
-	public Character(ArrayList<Rectangle> obstacles, String name) {
-		c = new Rectangle(300 - (charaWidth / 2), 680 - charaHeight, charaWidth, charaHeight);
+	public Character(ArrayList<Rectangle> obstacles, String name) {		
+		img = new Image(getClass().getResourceAsStream("/character/professor.png"));
+		imgView = new ImageView();
+		imgView.setImage(img);
+		imgView.setFitWidth(charaWidth);
+		imgView.setFitHeight(charaHeight);
+		imgView.setX(300 - (charaWidth / 2));
+		imgView.setY(680 - charaHeight);
+		
 		this.obstacles = obstacles;
 		this.name = name;
 	}
@@ -120,12 +132,12 @@ public class Character {
 	
 	//move to right
 	public void moveR() {
-		c.setX(c.getX() + 10);
+		imgView.setX(imgView.getX() + 10);
 	}
 	
 	//move to left
 	public void moveL() {
-		c.setX(c.getX() - 10);
+		imgView.setX(imgView.getX() - 10);
 	}
 	
 	//jump move
@@ -141,27 +153,27 @@ public class Character {
 				}
 				
 				if (timeInTheAir < timeControlY(time) && canJump) {
-					c.setY(c.getY()-5);
+					imgView.setY(imgView.getY()-5);
 					jumpX();
 					canJump = false;
 					canMove = false;
 				} else if (timeInTheAir < timeControlY(time) && !onTheFloor() && !hit() && !hitSide()) {
-					c.setY(c.getY()-5);
+					imgView.setY(imgView.getY()-5);
 					jumpX();
 				} else if (timeInTheAir < timeControlY(time) && !onTheFloor() && hit()) {
-					c.setY(c.getY()+5);
+					imgView.setY(imgView.getY()+5);
 					timeInTheAir = 80;
 					jumpX();
 				} else if (timeInTheAir < timeControlY(time) && !onTheFloor() && hitSide()) {
-					c.setY(c.getY()-5);
+					imgView.setY(imgView.getY()-5);
 					changeDirection();
 					jumpX();
 				} else if (!onTheFloor() && hitSide()) {
-					c.setY(c.getY()+5);
+					imgView.setY(imgView.getY()+5);
 					changeDirection();
 					jumpX();
 				} else if (!onTheFloor()) {
-					c.setY(c.getY()+5);
+					imgView.setY(imgView.getY()+5);
 					jumpX();
 				} else if (onTheFloor() && !canJump) {
 					timeInTheAir = 80;
@@ -182,9 +194,9 @@ public class Character {
 		wall();
 		
 		if (direction == 'l') {
-			c.setX(c.getX() - speedControlX(time));
+			imgView.setX(imgView.getX() - speedControlX(time));
 		} else if (direction == 'r') {
-			c.setX(c.getX() + speedControlX(time));
+			imgView.setX(imgView.getX() + speedControlX(time));
 		}
 	}
 	
@@ -206,14 +218,14 @@ public class Character {
 	
 	//step on the floor
 	public boolean onTheFloor() {
-		if (curMap == 1 && c.getY() == 680 - charaHeight) {
-			c.setY(680 - charaHeight);
+		if (curMap == 1 && imgView.getY() == 680 - charaHeight) {
+			imgView.setY(680 - charaHeight);
 			return true;
 		}
 		
 		for (int i = 0; i < obstacles.size(); i++) {
 			Rectangle temp = obstacles.get(i);			
-			if (c.getY() == temp.getY()-charaHeight && c.getX() >= temp.getX()-(charaWidth/2) && c.getX() <= temp.getX()+temp.getWidth()-(charaWidth/2)) {
+			if (imgView.getY() == temp.getY()-charaHeight && imgView.getX() >= temp.getX()-(charaWidth/2) && imgView.getX() <= temp.getX()+temp.getWidth()-(charaWidth/2)) {
 				if (curMap == maxMap && temp.getY() == goalY) {
 					win = true;
 				}
@@ -227,7 +239,7 @@ public class Character {
 	//walk out of the floor
 	public void fallDown() {
 		canMove = false;
-		c.setY(c.getY() + 5);
+		imgView.setY(imgView.getY() + 5);
 	}
 	
 	//change direction when needed
@@ -241,16 +253,16 @@ public class Character {
 	
 	//hit the wall during jumping
 	public void wall() {
-		if (c.getX() <= 0) {
+		if (imgView.getX() <= 0) {
 			direction = 'r';
-		} else if (c.getX() >= 550) {
+		} else if (imgView.getX() >= 550) {
 			direction = 'l';
 		}
 	}
 	
 	//hit the left wall when on the floor
 	public boolean wallL() {
-		if (c.getX() <= 0) {
+		if (imgView.getX() <= 0) {
 			return true;
 		}
 		return false;
@@ -258,7 +270,7 @@ public class Character {
 	
 	//hit the left wall when on the floor
 	public boolean wallR() {
-		if (c.getX() >= 550) {
+		if (imgView.getX() >= 550) {
 			return true;
 		}
 		return false;
@@ -268,7 +280,7 @@ public class Character {
 	public boolean hit() {
 		for (int i = 0; i < obstacles.size(); i++) {
 			Rectangle temp = obstacles.get(i);
-			if (c.getY() == temp.getY()+20 && c.getX() <= temp.getX()+temp.getWidth() && c.getX() >= temp.getX()-charaWidth) {
+			if (imgView.getY() == temp.getY()+20 && imgView.getX() <= temp.getX()+temp.getWidth() && imgView.getX() >= temp.getX()-charaWidth) {
 				return true;
 			}
 		}
@@ -279,9 +291,9 @@ public class Character {
 	public boolean hitSide() {
 		for (int i = 0; i < obstacles.size(); i++) {
 			Rectangle temp = obstacles.get(i);
-			if (direction == 'l' && c.getY() >= temp.getY()-charaHeight && c.getY() <= temp.getY()+20 && c.getX() > temp.getX()+temp.getWidth()-(charaWidth/2) && c.getX() <= temp.getX()+temp.getWidth()) {
+			if (direction == 'l' && imgView.getY() >= temp.getY()-charaHeight && imgView.getY() <= temp.getY()+20 && imgView.getX() > temp.getX()+temp.getWidth()-(charaWidth/2) && imgView.getX() <= temp.getX()+temp.getWidth()) {
 				return true;
-			} else if (direction == 'r' && c.getY() >= temp.getY()-charaHeight && c.getY() < temp.getY()+20 && c.getX() >= temp.getX()-charaWidth && c.getX() < temp.getX()+(charaWidth/2)) {
+			} else if (direction == 'r' && imgView.getY() >= temp.getY()-charaHeight && imgView.getY() < temp.getY()+20 && imgView.getX() >= temp.getX()-charaWidth && imgView.getX() < temp.getX()+(charaWidth/2)) {
 				return true;
 			}
 		}

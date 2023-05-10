@@ -1,16 +1,230 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Line endX="300.0" layoutX="300.0" layoutY="680.0" startX="-300.0" />
+      <ImageView fitHeight="680.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../character/blue2.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true" y="680.0">
+         <image>
+            <Image url="@../character/ground.png" />
+         </image>
+      </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" stroke="BLACK" strokeType="INSIDE" width="200.0" y="450.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" stroke="BLACK" strokeType="INSIDE" width="200.0" x="200.0" y="350.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" stroke="BLACK" strokeType="INSIDE" width="100.0" y="200.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" stroke="BLACK" strokeType="INSIDE" width="200.0" x="400.0" y="250.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" stroke="BLACK" strokeType="INSIDE" width="100.0" x="250.0" y="100.0" />
+      <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" y="450.0">
+         <image>
+            <Image url="@../character/block.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" x="20.0" y="450.0">
+         <image>
+            <Image url="@../character/block.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" x="40.0" y="450.0">
+         <image>
+            <Image url="@../character/block.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" x="60.0" y="450.0">
+         <image>
+            <Image url="@../character/block.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" x="80.0" y="450.0">
+         <image>
+            <Image url="@../character/block.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" x="100.0" y="450.0">
+         <image>
+            <Image url="@../character/block.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" x="140.0" y="450.0">
+         <image>
+            <Image url="@../character/block.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" x="120.0" y="450.0">
+         <image>
+            <Image url="@../character/block.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" x="160.0" y="450.0">
+         <image>
+            <Image url="@../character/block.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" x="180.0" y="450.0">
+         <image>
+            <Image url="@../character/block.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" x="200.0" y="350.0">
+         <image>
+            <Image url="@../character/block.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" x="220.0" y="350.0">
+         <image>
+            <Image url="@../character/block.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" x="240.0" y="350.0">
+         <image>
+            <Image url="@../character/block.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" x="260.0" y="350.0">
+         <image>
+            <Image url="@../character/block.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" x="280.0" y="350.0">
+         <image>
+            <Image url="@../character/block.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" x="300.0" y="350.0">
+         <image>
+            <Image url="@../character/block.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" x="320.0" y="350.0">
+         <image>
+            <Image url="@../character/block.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" x="340.0" y="350.0">
+         <image>
+            <Image url="@../character/block.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" x="360.0" y="350.0">
+         <image>
+            <Image url="@../character/block.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" x="380.0" y="350.0">
+         <image>
+            <Image url="@../character/block.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" x="400.0" y="250.0">
+         <image>
+            <Image url="@../character/block.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" x="420.0" y="250.0">
+         <image>
+            <Image url="@../character/block.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" x="440.0" y="250.0">
+         <image>
+            <Image url="@../character/block.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" x="460.0" y="250.0">
+         <image>
+            <Image url="@../character/block.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" x="480.0" y="250.0">
+         <image>
+            <Image url="@../character/block.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" x="500.0" y="250.0">
+         <image>
+            <Image url="@../character/block.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" x="520.0" y="250.0">
+         <image>
+            <Image url="@../character/block.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" x="540.0" y="250.0">
+         <image>
+            <Image url="@../character/block.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" x="560.0" y="250.0">
+         <image>
+            <Image url="@../character/block.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" x="580.0" y="250.0">
+         <image>
+            <Image url="@../character/block.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" y="200.0">
+         <image>
+            <Image url="@../character/block.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" x="20.0" y="200.0">
+         <image>
+            <Image url="@../character/block.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" x="40.0" y="200.0">
+         <image>
+            <Image url="@../character/block.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" x="60.0" y="200.0">
+         <image>
+            <Image url="@../character/block.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" x="80.0" y="200.0">
+         <image>
+            <Image url="@../character/block.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" x="250.0" y="100.0">
+         <image>
+            <Image url="@../character/block.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" x="270.0" y="100.0">
+         <image>
+            <Image url="@../character/block.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" x="290.0" y="100.0">
+         <image>
+            <Image url="@../character/block.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" x="310.0" y="100.0">
+         <image>
+            <Image url="@../character/block.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" x="330.0" y="100.0">
+         <image>
+            <Image url="@../character/block.png" />
+         </image>
+      </ImageView>
    </children>
+   <effect>
+      <ColorAdjust />
+   </effect>
 </AnchorPane>

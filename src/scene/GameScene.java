@@ -42,7 +42,8 @@ public class GameScene {
 	
 	private void loadCharacter() {
 		chara.bindControls(s);
-		root.getChildren().add(chara.c);
+		root.getChildren().add(chara.imgView);
+		//root.getChildren().add(chara.c);
 	}
 	
 	private void loadMap() throws IOException {
@@ -52,20 +53,20 @@ public class GameScene {
 	private AnimationTimer over = new AnimationTimer() {
 		@Override
 		public void handle(long arg0) {
-			if (chara.c.getY() <= 0) {
+			if (chara.imgView.getY() <= 0) {
 				try {
 					if (mapHandler.goUp()) {
-						chara.c.setY(695);
+						chara.imgView.setY(695);
 						curMap = mapHandler.curMap;
 						chara.setCurMap(curMap);
 					}
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
-			} else if (chara.c.getY() >= 700) {
+			} else if (chara.imgView.getY() >= 700) {
 				try {
 					mapHandler.goDown();
-					chara.c.setY(5);
+					chara.imgView.setY(5);
 					curMap = mapHandler.curMap;
 					chara.setCurMap(curMap);
 				} catch (IOException e) {
