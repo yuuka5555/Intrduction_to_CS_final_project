@@ -9,7 +9,7 @@
    <children>
       <ImageView fitHeight="700.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../character/sun.jpg" />
+            <Image url="@../picture/sun.jpg" />
          </image>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" stroke="BLACK" strokeType="INSIDE" width="200.0" x="100.0" y="650.0" />

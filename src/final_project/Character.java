@@ -56,7 +56,7 @@ public class Character {
 	
 	//claim character
 	public Character(ArrayList<Rectangle> obstacles, String name) {		
-		img = new Image(getClass().getResourceAsStream("/character/professor.png"));
+		img = new Image(getClass().getResourceAsStream("/picture/professor.png"));
 		imgView = new ImageView();
 		imgView.setImage(img);
 		imgView.setFitWidth(charaWidth);
