@@ -13,11 +13,16 @@ import javafx.scene.shape.Rectangle;
 
 public class MapSwitcher {
 	private String baseMapName = "/scene/map";
+	private String difficult;
 	private Group root;
 	public int curMap = 1;
-	public int maxMap = 3;
+	public int maxMap;
 	
 	public ArrayList<Rectangle> obstacles;
+	
+	public void setDifficult(String degree) {
+		this.difficult = degree;
+	}
 	
 	public MapSwitcher(Group root, ArrayList<Rectangle> obstacles) {
 		this.root = root;
@@ -49,7 +54,7 @@ public class MapSwitcher {
 	}
 	
 	public void attachNewMapAtInitial() throws IOException {
-		Parent fxmlRoot = FXMLLoader.load(getClass().getResource(baseMapName + String.valueOf(curMap) + ".fxml"));
+		Parent fxmlRoot = FXMLLoader.load(getClass().getResource(baseMapName + difficult + String.valueOf(curMap) + ".fxml"));
 		SubScene fxmlScene = new SubScene(fxmlRoot, 600, 700);
 		
 		ObservableList<Node> list = root.getChildren();

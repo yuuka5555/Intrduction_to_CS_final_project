@@ -12,9 +12,9 @@
             <Image url="@../picture/jump.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="200.0" layoutY="400.0" mnemonicParsing="false" onAction="#enterGame" prefHeight="50.0" prefWidth="200.0" text="Play" />
-      <Button layoutX="200.0" layoutY="475.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" text="picture" />
-      <Button layoutX="200.0" layoutY="550.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" text="Volume" />
-      <Button layoutX="200.0" layoutY="625.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" text="degree of difficult" />
+      <Button layoutX="200.0" layoutY="400.0" mnemonicParsing="false" onAction="#enterModeSelect" prefHeight="50.0" prefWidth="200.0" text="Play" />
+      <Button layoutX="200.0" layoutY="475.0" mnemonicParsing="false" onAction="#selectCharacter" prefHeight="50.0" prefWidth="200.0" text="character" />
+      <Button layoutX="200.0" layoutY="550.0" mnemonicParsing="false" onAction="#enterVolumeController" prefHeight="50.0" prefWidth="200.0" text="Volume" />
+      <Button layoutX="200.0" layoutY="625.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" text="instructor" />
    </children>
 </AnchorPane>

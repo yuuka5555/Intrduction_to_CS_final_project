@@ -8,7 +8,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 public class Character {
@@ -23,10 +22,7 @@ public class Character {
 	boolean canJump = true;
 	boolean canMove = true;
 	public boolean win = false;
-	public String name = "professor";
 	char direction = 'n';
-	
-	public Rectangle c;
 	public ImageView imgView;
 	public Image img;
 
@@ -55,8 +51,8 @@ public class Character {
 	};
 	
 	//claim character
-	public Character(ArrayList<Rectangle> obstacles, String name) {		
-		img = new Image(getClass().getResourceAsStream("/picture/professor.png"));
+	public Character(ArrayList<Rectangle> obstacles) {		
+		img = new Image(getClass().getResourceAsStream("/picture/" + Config.curChara + ".png"));
 		imgView = new ImageView();
 		imgView.setImage(img);
 		imgView.setFitWidth(charaWidth);
@@ -65,7 +61,6 @@ public class Character {
 		imgView.setY(680 - charaHeight);
 		
 		this.obstacles = obstacles;
-		this.name = name;
 	}
 	
 	//moving command determined
