@@ -19,14 +19,18 @@ public class Character {
 	double goalY = 700;
 	double charaWidth = 40;
 	double charaHeight = 45;
-	boolean canJump = true;
-	boolean canMove = true;
+	
+	public boolean canJump = true;
+	public boolean canMove = true;
+	
 	public boolean win = false;
+	
 	char direction = 'n';
+	
 	public ImageView imgView;
 	public Image img;
 
-	private AnimationTimer jumping;
+	public AnimationTimer jumping;
 	
 	public ArrayList<Rectangle> obstacles;
 	
@@ -63,60 +67,80 @@ public class Character {
 		this.obstacles = obstacles;
 	}
 	
+//	public EventHandler<KeyEvent> p = new EventHandler<KeyEvent>() {
+//
+//		@Override
+//		public void handle(KeyEvent event) {
+//			if (event.getCode().equals(KeyCode.ESCAPE)) {
+//				
+//			}
+//		}
+//	};
+	
 	//moving command determined
-	public void bindControls(Scene s) {
-		s.setOnKeyPressed(new EventHandler<KeyEvent>() {
+	public EventHandler<KeyEvent> controls = new EventHandler<KeyEvent>() {
 
-			@Override
-			public void handle(KeyEvent event) {				
-				switch(event.getCode()) {
-				case A:
-					canJump = false;
-					if (canMove) {
-						if (!wallL()) {
-							moveL();
-							direction = 'l';
-						}
-						if (!onTheFloor()) {
-							fall.start();
-						}
+		@Override
+		public void handle(KeyEvent event) {				
+			switch(event.getCode()) {
+			case A:
+				canJump = false;
+				if (canMove) {
+					if (!wallL()) {
+						moveL();
+						direction = 'l';
 					}
-					canJump = true;
-					
-					break;
-				case D:
-					canJump = false;
-					if (canMove) {
-						if (!wallR()) {
-							moveR();
-							direction = 'r';
-						}
-						
-						if (!onTheFloor()) {
-							fall.start();
-						}
+					if (!onTheFloor()) {
+						fall.start();
 					}
-					canJump = true;
-					
-					break;
-				case W:
-					if (onTheFloor() && time == 0) {
-						canMove = false;
-						space.start();
-					}
-					break;
-				default:
-					break;
 				}
+				canJump = true;
+				
+				break;
+			case D:
+				canJump = false;
+				if (canMove) {
+					if (!wallR()) {
+						moveR();
+						direction = 'r';
+					}
+					
+					if (!onTheFloor()) {
+						fall.start();
+					}
+				}
+				canJump = true;
+				
+				break;
+			case SPACE:
+				if (onTheFloor() && time == 0) {
+					canMove = false;
+					space.start();
+				}
+				break;
+			case W:
+				if (canJump && canMove) {
+					direction = 'n';
+				}
+				break;
+			case ESCAPE:
+				Config.gameState = 1;
+				break;
+			default:
+				break;
 			}
-			
-		});
+		}
+		
+	};
+	
+	public void bindControls(Scene s) {
+		s.setOnKeyPressed(controls);
 		
 		s.setOnKeyReleased(new EventHandler<KeyEvent>() {
 
 			@Override
 			public void handle(KeyEvent event) {
-				if (onTheFloor() && event.getCode().equals(KeyCode.W)) {
+				if (onTheFloor() && event.getCode().equals(KeyCode.SPACE)) {
 					space.stop();
 					jump();
 				}
@@ -137,7 +161,6 @@ public class Character {
 	
 	//jump move
 	public void jump() {
-		canMove = true;
 		jumping = new AnimationTimer() {
 			@Override
 			public void handle(long arg0) {
@@ -170,13 +193,11 @@ public class Character {
 				} else if (!onTheFloor()) {
 					imgView.setY(imgView.getY()+5);
 					jumpX();
-				} else if (onTheFloor() && !canJump) {
-					timeInTheAir = 80;
-					canJump = true;
 				} else {
 					jumping.stop();
 					timeInTheAir = 0;
 					canMove = true;
+					canJump = true;
 					time = 0;
 				}
 			}

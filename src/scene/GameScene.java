@@ -26,6 +26,8 @@ public class GameScene {
 	String degree;
 	Character chara = new Character(obstacles);
 	
+	Parent pause = FXMLLoader.load(getClass().getResource("pause.fxml"));
+	
 	private MusicController mc = new MusicController();
 	
 	public GameScene(int max, String degree) throws IOException {
@@ -82,6 +84,28 @@ public class GameScene {
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
+			} else if (Config.gameState == 1) {
+				Config.gameState = 0;				
+				root.getChildren().add(pause);
+				s.setOnKeyPressed(null);
+				over.stop();
+				pauseTime.start();
+			}
+		}
+	};
+	
+	private AnimationTimer pauseTime = new AnimationTimer() {
+		@Override
+		public void handle(long arg0) {
+			if (Config.gameState == 2) {
+				root.getChildren().remove(pause);
+				Config.gameState = 0;
+				s.setOnKeyPressed(chara.controls);
+				over.start();
+				pauseTime.stop();
+			} else if (Config.gameState == 3) {
+				pauseTime.stop();
+				Config.gameState = 0;
 			}
 		}
 	};

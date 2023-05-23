@@ -35,6 +35,14 @@ public class menuController {
 		stage.setScene(scene);
 	}
 	
+	public void intructor(ActionEvent e) throws IOException {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/scene/instructor.fxml"));
+		Parent root = loader.load();
+		getStage(e);
+		Scene scene = new Scene(root);
+		stage.setScene(scene);
+	}
+	
 	public void getStage(ActionEvent e) {
 		stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
 	}

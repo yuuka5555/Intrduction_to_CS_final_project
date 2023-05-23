@@ -7,4 +7,6 @@ public class Config {
 	public static DoubleProperty volume = new SimpleDoubleProperty(0.5);
 	
 	public static String curChara = "yoga";
+	
+	public static int gameState = 0;
 }
