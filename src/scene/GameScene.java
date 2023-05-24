@@ -104,6 +104,7 @@ public class GameScene {
 				over.start();
 				pauseTime.stop();
 			} else if (Config.gameState == 3) {
+				mc.stop();
 				pauseTime.stop();
 				Config.gameState = 0;
 			}
