@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 
 public class CharacterSelect {
 	@FXML
-	private RadioButton yoga, professor;
+	private RadioButton yoga, professor, squirrel;
 	
 	private Stage stage;
 	private Scene scene;
@@ -25,6 +25,8 @@ public class CharacterSelect {
 			Config.curChara = "yoga";
 		} else if (professor.isSelected()) {
 			Config.curChara = "professor";
+		} else if (squirrel.isSelected()) {
+			Config.curChara = "squirrel";
 		}
 	}
 	

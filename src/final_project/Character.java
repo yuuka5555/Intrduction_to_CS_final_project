@@ -67,16 +67,6 @@ public class Character {
 		this.obstacles = obstacles;
 	}
 	
-//	public EventHandler<KeyEvent> p = new EventHandler<KeyEvent>() {
-//
-//		@Override
-//		public void handle(KeyEvent event) {
-//			if (event.getCode().equals(KeyCode.ESCAPE)) {
-//				
-//			}
-//		}
-//	};
-	
 	//moving command determined
 	public EventHandler<KeyEvent> controls = new EventHandler<KeyEvent>() {
 
@@ -86,10 +76,18 @@ public class Character {
 			case A:
 				canJump = false;
 				if (canMove) {
-					if (!wallL()) {
-						moveL();
-						direction = 'l';
+//					if (!wallL() && !hitSide()) {
+//						moveL();
+//						direction = 'l';
+//					} else if (hitSide() && direction == 'r') {
+//						moveL();
+//						direction = 'l';
+//					}
+					direction = 'l';
+					if (canForward()) {
+						moveL();	
 					}
+					
 					if (!onTheFloor()) {
 						fall.start();
 					}
@@ -100,9 +98,16 @@ public class Character {
 			case D:
 				canJump = false;
 				if (canMove) {
-					if (!wallR()) {
+//					if (!wallR() && !hitSide()) {
+//						moveR();	
+//						direction = 'r';
+//					} else if (hitSide() && direction == 'l') {
+//						moveR();	
+//						direction = 'r';
+//					}
+					direction = 'r';
+					if (canForward()) {
 						moveR();
-						direction = 'r';
 					}
 					
 					if (!onTheFloor()) {
@@ -296,7 +301,7 @@ public class Character {
 	public boolean hit() {
 		for (int i = 0; i < obstacles.size(); i++) {
 			Rectangle temp = obstacles.get(i);
-			if (imgView.getY() == temp.getY()+20 && imgView.getX() <= temp.getX()+temp.getWidth() && imgView.getX() >= temp.getX()-charaWidth) {
+			if (imgView.getY() == temp.getY()+temp.getHeight() && imgView.getX() <= temp.getX()+temp.getWidth() && imgView.getX() >= temp.getX()-charaWidth) {
 				return true;
 			}
 		}
@@ -307,9 +312,9 @@ public class Character {
 	public boolean hitSide() {
 		for (int i = 0; i < obstacles.size(); i++) {
 			Rectangle temp = obstacles.get(i);
-			if (direction == 'l' && imgView.getY() >= temp.getY()-charaHeight && imgView.getY() <= temp.getY()+20 && imgView.getX() > temp.getX()+temp.getWidth()-(charaWidth/2) && imgView.getX() <= temp.getX()+temp.getWidth()) {
+			if (direction == 'l' && imgView.getY() >= temp.getY()-charaHeight && imgView.getY() <= temp.getY()+temp.getHeight() && imgView.getX() > temp.getX()+temp.getWidth()-(charaWidth/2) && imgView.getX() <= temp.getX()+temp.getWidth()) {
 				return true;
-			} else if (direction == 'r' && imgView.getY() >= temp.getY()-charaHeight && imgView.getY() < temp.getY()+20 && imgView.getX() >= temp.getX()-charaWidth && imgView.getX() < temp.getX()+(charaWidth/2)) {
+			} else if (direction == 'r' && imgView.getY() >= temp.getY()-charaHeight && imgView.getY() <= temp.getY()+temp.getHeight() && imgView.getX() >= temp.getX()-charaWidth && imgView.getX() < temp.getX()+(charaWidth/2)) {
 				return true;
 			}
 		}
@@ -333,6 +338,24 @@ public class Character {
 			if (temp.getY() < goalY) {
 				goalY = temp.getY();
 			}
+		}
+	}
+	
+	public boolean canForward() {
+		if (wallL() && direction == 'l') {
+			return false;
+		} else if(wallR() && direction == 'r') {
+			return false;
+		} else {
+			for (int i = 0; i < obstacles.size(); i++) {
+				Rectangle temp = obstacles.get(i);
+				if (direction == 'l' && imgView.getY() > temp.getY()-charaHeight && imgView.getY() < temp.getY()+temp.getHeight() && imgView.getX() > temp.getX()+temp.getWidth()-(charaWidth/2) && imgView.getX() <= temp.getX()+temp.getWidth()) {
+					return false;
+				} else if (direction == 'r' && imgView.getY() > temp.getY()-charaHeight && imgView.getY() < temp.getY()+temp.getHeight() && imgView.getX() >= temp.getX()-charaWidth && imgView.getX() < temp.getX()+(charaWidth/2)) {
+					return false;
+				}
+			}
+			return true;
 		}
 	}
 }

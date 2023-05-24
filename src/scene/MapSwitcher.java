@@ -77,7 +77,7 @@ public class MapSwitcher {
 	}
 	
 	public void attachNewMap() throws IOException {
-		Parent fxmlRoot = FXMLLoader.load(getClass().getResource(baseMapName + String.valueOf(curMap) + ".fxml"));
+		Parent fxmlRoot = FXMLLoader.load(getClass().getResource(baseMapName + difficult + String.valueOf(curMap) + ".fxml"));
 		SubScene fxmlScene = new SubScene(fxmlRoot, 600, 700);
 		
 		ObservableList<Node> list = root.getChildren();
