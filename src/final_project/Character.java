@@ -77,13 +77,6 @@ public class Character {
 			case A:
 				canJump = false;
 				if (canMove) {
-//					if (!wallL() && !hitSide()) {
-//						moveL();
-//						direction = 'l';
-//					} else if (hitSide() && direction == 'r') {
-//						moveL();
-//						direction = 'l';
-//					}
 					direction = 'l';
 					if (canForward()) {
 						moveL();	
@@ -99,13 +92,6 @@ public class Character {
 			case D:
 				canJump = false;
 				if (canMove) {
-//					if (!wallR() && !hitSide()) {
-//						moveR();	
-//						direction = 'r';
-//					} else if (hitSide() && direction == 'l') {
-//						moveR();	
-//						direction = 'r';
-//					}
 					direction = 'r';
 					if (canForward()) {
 						moveR();
@@ -131,6 +117,9 @@ public class Character {
 				break;
 			case ESCAPE:
 				Config.gameState = 1;
+				break;
+			case P:
+				System.out.printf("cp: %f, %f\n", imgView.getX(), imgView.getY());
 				break;
 			default:
 				break;
@@ -160,10 +149,16 @@ public class Character {
 		    double tarX = mouseEvent.getSceneX();
 		    double tarY = mouseEvent.getSceneY();
 		    
-		    tarX -= tarX % 5;
+		    tarX -= tarX % 10;
 		    tarY -= tarY % 5 + charaHeight;
-		    imgView.setX(tarX);
-		    imgView.setY(tarY);
+		    
+		    int x = (int) (tarX + (tarX > 0 ? 0.5 : -0.5));
+		    int y = (int) (tarY + (tarY > 0 ? 0.5 : -0.5));
+		    
+		    imgView.setX(x);
+		    imgView.setY(y);
+		    
+		    System.out.println(x + ", " + y);
 		    
 		    if (!onTheFloor()) {
 				fall.start();
