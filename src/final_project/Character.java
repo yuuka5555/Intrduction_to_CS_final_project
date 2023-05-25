@@ -8,6 +8,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
 
 public class Character {
@@ -151,6 +152,23 @@ public class Character {
 				}
 			}
 			
+		});
+		
+		s.setOnMousePressed(new EventHandler<MouseEvent>() {
+		  @Override
+		  public void handle(MouseEvent mouseEvent) {
+		    double tarX = mouseEvent.getSceneX();
+		    double tarY = mouseEvent.getSceneY();
+		    
+		    tarX -= tarX % 5;
+		    tarY -= tarY % 5 + charaHeight;
+		    imgView.setX(tarX);
+		    imgView.setY(tarY);
+		    
+		    if (!onTheFloor()) {
+				fall.start();
+			}
+		  }
 		});
 	}
 	
