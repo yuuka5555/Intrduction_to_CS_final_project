@@ -10,47 +10,47 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scene.instructor">
    <children>
       <ImageView fitHeight="700.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="150.0" fitWidth="156.0" layoutX="44.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="99.0" fitWidth="98.0" layoutX="44.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../picture/A.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="156.0" layoutX="44.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="99.0" fitWidth="110.0" layoutX="44.0" layoutY="155.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../picture/D.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="156.0" layoutX="40.0" layoutY="379.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="150.0" fitWidth="156.0" layoutX="34.0" layoutY="418.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../picture/space.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="156.0" layoutX="43.0" layoutY="479.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="97.0" fitWidth="105.0" layoutX="44.0" layoutY="282.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../picture/W.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="209.0" layoutY="77.0" prefHeight="62.0" prefWidth="365.0" text="左移 並將方向設成左">
+      <Label layoutX="209.0" layoutY="50.0" prefHeight="62.0" prefWidth="365.0" text="左移 並將方向設成左">
          <font>
-            <Font size="36.0" />
+            <Font size="24.0" />
          </font>
       </Label>
-      <Label layoutX="209.0" layoutY="245.0" prefHeight="62.0" prefWidth="366.0" text="右移 並將方向設成右">
+      <Label layoutX="208.0" layoutY="173.0" prefHeight="62.0" prefWidth="366.0" text="右移 並將方向設成右">
          <font>
-            <Font size="36.0" />
+            <Font size="24.0" />
          </font>
       </Label>
-      <Label layoutX="209.0" layoutY="383.0" prefHeight="62.0" prefWidth="390.0" text="根據目前方向跳躍">
+      <Label layoutX="209.0" layoutY="421.0" prefHeight="62.0" prefWidth="390.0" text="根據目前方向以及按壓時間長短跳躍">
          <font>
-            <Font size="36.0" />
+            <Font size="24.0" />
          </font>
       </Label>
-      <Label layoutX="208.0" layoutY="523.0" prefHeight="62.0" prefWidth="390.0" text="將目前方向改成向上">
+      <Label layoutX="209.0" layoutY="299.0" prefHeight="62.0" prefWidth="390.0" text="將目前方向改成向上">
          <font>
-            <Font size="36.0" />
+            <Font size="24.0" />
          </font>
       </Label>
-      <Button layoutX="200.0" layoutY="629.0" mnemonicParsing="false" onAction="#returnToMenu" prefHeight="50.0" prefWidth="200.0" text="return">
+      <Button layoutX="200.0" layoutY="563.0" mnemonicParsing="false" onAction="#returnToMenu" prefHeight="50.0" prefWidth="200.0" text="return">
          <font>
             <Font size="24.0" />
          </font>

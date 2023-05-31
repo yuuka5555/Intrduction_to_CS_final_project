@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scene.Lose">
+   <children>
+      <Label layoutX="172.0" layoutY="427.0" prefHeight="86.0" prefWidth="254.0" text="老人家膝蓋不好" textOverrun="CLIP">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Label>
+      <Button focusTraversable="false" layoutX="199.0" layoutY="519.0" mnemonicParsing="false" onAction="#returnToMenu" pickOnBounds="false" prefHeight="50.0" prefWidth="200.0" text="return">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="293.0" fitWidth="478.0" layoutX="80.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../picture/AD.jpg" />
+         </image></ImageView>
+   </children>
+</AnchorPane>

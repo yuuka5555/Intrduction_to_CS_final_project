@@ -36,7 +36,7 @@ public class GameScene {
 		s = new Scene(root, 600, 700, Color.TRANSPARENT);
 		loadCharacter(max);
 		loadMap(max);
-		over.start();
+		gameTime.start();
 		mc.play("src/music/" + Config.curChara + ".mp3");
 	}
 	
@@ -44,6 +44,7 @@ public class GameScene {
 		chara.setMaxMap(max);
 		chara.bindControls(s);
 		root.getChildren().add(chara.imgView);
+		Config.jumpTime = 0;
 	}
 	
 	private void loadMap(int max) throws IOException {
@@ -52,7 +53,7 @@ public class GameScene {
 		mapHandler.attachNewMapAtInitial();
 	}
 	
-	private AnimationTimer over = new AnimationTimer() {
+	private AnimationTimer gameTime = new AnimationTimer() {
 		@Override
 		public void handle(long arg0) {
 			if (chara.imgView.getY() <= 0) {
@@ -77,10 +78,11 @@ public class GameScene {
 			} else if (chara.win) {
 				try {
 					mc.stop();
+					s.setOnKeyPressed(null);
 					mc.playApplause();
 					Parent end = FXMLLoader.load(getClass().getResource("end.fxml"));
 					root.getChildren().add(end);
-					over.stop();
+					gameTime.stop();
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
@@ -88,8 +90,18 @@ public class GameScene {
 				Config.gameState = 0;				
 				root.getChildren().add(pause);
 				s.setOnKeyPressed(null);
-				over.stop();
+				gameTime.stop();
 				pauseTime.start();
+			} else if (Config.curChara.equals("professor") && Config.jumpTime > 20) {
+				try {
+					mc.stop();
+					s.setOnKeyPressed(null);
+					Parent end = FXMLLoader.load(getClass().getResource("lose.fxml"));
+					root.getChildren().add(end);
+					gameTime.stop();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
 		}
 	};
@@ -101,7 +113,7 @@ public class GameScene {
 				root.getChildren().remove(pause);
 				Config.gameState = 0;
 				s.setOnKeyPressed(chara.controls);
-				over.start();
+				gameTime.start();
 				pauseTime.stop();
 			} else if (Config.gameState == 3) {
 				mc.stop();

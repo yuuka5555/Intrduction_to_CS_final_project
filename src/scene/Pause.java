@@ -16,6 +16,7 @@ public class Pause {
 	private Parent rt;
 	
 	public void returnToMenu(ActionEvent e) throws IOException {
+		Config.mc.play("src/music/menu.m4a");
 		rt = FXMLLoader.load(getClass().getResource("menu.fxml"));
 		stg = (Stage)((Node)e.getSource()).getScene().getWindow();
 		sc = new Scene(rt);				
@@ -25,5 +26,13 @@ public class Pause {
 	
 	public void backToGame(ActionEvent e) {
 		Config.gameState = 2;
+	}
+	
+	public void openPublisherTool(ActionEvent e) {
+		if (Config.cheat) {
+			Config.cheat = false;
+		} else {
+			Config.cheat = true;
+		}
 	}
 }

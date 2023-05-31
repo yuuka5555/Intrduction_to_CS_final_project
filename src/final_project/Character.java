@@ -23,6 +23,7 @@ public class Character {
 	
 	public boolean canJump = true;
 	public boolean canMove = true;
+	public boolean cheat = false;
 	
 	public boolean win = false;
 	
@@ -118,9 +119,6 @@ public class Character {
 			case ESCAPE:
 				Config.gameState = 1;
 				break;
-			case P:
-				System.out.printf("cp: %f, %f\n", imgView.getX(), imgView.getY());
-				break;
 			default:
 				break;
 			}
@@ -137,33 +135,44 @@ public class Character {
 			public void handle(KeyEvent event) {
 				if (onTheFloor() && event.getCode().equals(KeyCode.SPACE)) {
 					space.stop();
+					if (time > 80) {
+						time = 80;
+					}
 					jump();
+					Config.jumpTime++;
 				}
 			}
 			
 		});
 		
 		s.setOnMousePressed(new EventHandler<MouseEvent>() {
-		  @Override
-		  public void handle(MouseEvent mouseEvent) {
-		    double tarX = mouseEvent.getSceneX();
-		    double tarY = mouseEvent.getSceneY();
-		    
-		    tarX -= tarX % 10;
-		    tarY -= tarY % 5 + charaHeight;
-		    
-		    int x = (int) (tarX + (tarX > 0 ? 0.5 : -0.5));
-		    int y = (int) (tarY + (tarY > 0 ? 0.5 : -0.5));
-		    
-		    imgView.setX(x);
-		    imgView.setY(y);
-		    
-		    System.out.println(x + ", " + y);
-		    
-		    if (!onTheFloor()) {
-				fall.start();
+			@Override
+			public void handle(MouseEvent mouseEvent) {
+			    if (Config.cheat) {
+					if (!onTheFloor()) {
+						fall.stop();
+					}
+			    	
+			    	double tarX = mouseEvent.getSceneX();
+				    double tarY = mouseEvent.getSceneY();
+				    
+				    tarX -= tarX % 10;
+				    tarY -= tarY % 5 + charaHeight;
+				    
+				    int x = (int) (tarX + (tarX > 0 ? 0.5 : -0.5));
+				    int y = (int) (tarY + (tarY > 0 ? 0.5 : -0.5));
+				    
+				    imgView.setX(x);
+				    imgView.setY(y);
+				    
+				    //System.out.println(x + ", " + y);
+				    
+				    
+				    if (!onTheFloor()) {
+						fall.start();
+					}
+			    }
 			}
-		  }
 		});
 	}
 	
@@ -183,25 +192,24 @@ public class Character {
 			@Override
 			public void handle(long arg0) {
 				timeInTheAir++;
-				
 				if (curMap == maxMap && goalY == 700) {
 					getGoalY();
 				}
 				
-				if (timeInTheAir < timeControlY(time) && canJump) {
+				if (timeInTheAir < time && canJump) {
 					imgView.setY(imgView.getY()-5);
 					jumpX();
 					canJump = false;
 					canMove = false;
-				} else if (timeInTheAir < timeControlY(time) && !onTheFloor() && !hit() && !hitSide()) {
+				} else if (timeInTheAir < time && !onTheFloor() && !hit() && !hitSide()) {
 					imgView.setY(imgView.getY()-5);
 					jumpX();
-				} else if (timeInTheAir < timeControlY(time) && !onTheFloor() && hit()) {
+				} else if (timeInTheAir < time && !onTheFloor() && hit()) {
 					imgView.setY(imgView.getY()+5);
 					timeInTheAir = 80;
 					jumpX();
-				} else if (timeInTheAir < timeControlY(time) && !onTheFloor() && hitSide()) {
-					imgView.setY(imgView.getY()-5);
+				} else if (timeInTheAir < time && !onTheFloor() && hitSide()) {
+					imgView.setY(imgView.getY()+5);
 					changeDirection();
 					jumpX();
 				} else if (!onTheFloor() && hitSide()) {
@@ -240,14 +248,6 @@ public class Character {
 			t = 40;
 		}
 		return t * 0.1 + 0.2;
-	}
-	
-	//limit the max jumping time
-	public double timeControlY(double t) {
-		if (t > 80) {
-			t = 80;
-		}
-		return t;
 	}
 	
 	//step on the floor

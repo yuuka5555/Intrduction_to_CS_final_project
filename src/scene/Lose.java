@@ -5,12 +5,12 @@ import java.io.IOException;
 import final_project.Config;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.scene.Node;
 
-public class EndScene {
+public class Lose {
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
