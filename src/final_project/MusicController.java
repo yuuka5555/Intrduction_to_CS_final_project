@@ -21,6 +21,14 @@ public class MusicController {
 		mediaplayer.play();
 	}
 	
+	public void playClick(String song) {
+		directory = new File(song);
+		media = new Media(directory.toURI().toString());
+		mediaplayer = new MediaPlayer(media);
+		mediaplayer.volumeProperty().bind(Config.volume);
+		mediaplayer.play();
+	}
+	
 	public void playApplause() {
 		directory = new File("src/music/applause.mp3");
 		media = new Media(directory.toURI().toString());

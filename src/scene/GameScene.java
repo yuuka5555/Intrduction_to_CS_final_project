@@ -38,6 +38,7 @@ public class GameScene {
 		loadMap(max);
 		gameTime.start();
 		mc.play("src/music/" + Config.curChara + ".mp3");
+		Config.cheat = false;
 	}
 	
 	private void loadCharacter(int max) {
@@ -92,9 +93,10 @@ public class GameScene {
 				s.setOnKeyPressed(null);
 				gameTime.stop();
 				pauseTime.start();
-			} else if (Config.curChara.equals("professor") && Config.jumpTime > 20) {
+			} else if (Config.curChara.equals("professor") && Config.jumpTime > 30) {
 				try {
 					mc.stop();
+					mc.playClick("src/music/loss.mp3");
 					s.setOnKeyPressed(null);
 					Parent end = FXMLLoader.load(getClass().getResource("lose.fxml"));
 					root.getChildren().add(end);

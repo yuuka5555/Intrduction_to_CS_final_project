@@ -13,19 +13,19 @@
             <Image url="@../picture/jump.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="200.0" layoutY="400.0" mnemonicParsing="false" onAction="#enterModeSelect" prefHeight="50.0" prefWidth="200.0" text="Play">
+      <Button blendMode="EXCLUSION" layoutX="200.0" layoutY="400.0" mnemonicParsing="false" onAction="#enterModeSelect" prefHeight="50.0" prefWidth="200.0" text="Play">
          <font>
             <Font size="24.0" />
          </font></Button>
-      <Button layoutX="200.0" layoutY="475.0" mnemonicParsing="false" onAction="#selectCharacter" prefHeight="50.0" prefWidth="200.0" text="Character">
+      <Button blendMode="EXCLUSION" layoutX="200.0" layoutY="475.0" mnemonicParsing="false" onAction="#selectCharacter" prefHeight="50.0" prefWidth="200.0" text="Character">
          <font>
             <Font size="24.0" />
          </font></Button>
-      <Button layoutX="200.0" layoutY="550.0" mnemonicParsing="false" onAction="#enterVolumeController" prefHeight="50.0" prefWidth="200.0" text="Volume">
+      <Button blendMode="EXCLUSION" layoutX="200.0" layoutY="550.0" mnemonicParsing="false" onAction="#enterVolumeController" prefHeight="50.0" prefWidth="200.0" text="Volume">
          <font>
             <Font size="24.0" />
          </font></Button>
-      <Button layoutX="200.0" layoutY="625.0" mnemonicParsing="false" onAction="#intructor" prefHeight="50.0" prefWidth="200.0" text="Instruct">
+      <Button blendMode="EXCLUSION" layoutX="200.0" layoutY="625.0" mnemonicParsing="false" onAction="#intructor" prefHeight="50.0" prefWidth="200.0" text="Instruct">
          <font>
             <Font size="24.0" />
          </font></Button>

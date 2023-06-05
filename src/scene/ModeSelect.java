@@ -16,6 +16,7 @@ public class ModeSelect {
 	private Parent root;
 	
 	public void returnToMenu(ActionEvent e) throws IOException {
+		Config.mc.playClick("src/music/click.mp3");
 		root = FXMLLoader.load(getClass().getResource("menu.fxml"));
 		getStage(e);
 		scene = new Scene(root);				
@@ -23,7 +24,7 @@ public class ModeSelect {
 	}
 	
 	public void enterGame(ActionEvent e) throws IOException {
-		Config.mc.stop();
+		Config.m.stop();
 		getStage(e);
 		GameScene gameScene = new GameScene(3, "");
 		stage.setScene(gameScene.s);
@@ -31,7 +32,7 @@ public class ModeSelect {
 	}
 	
 	public void enterHell(ActionEvent e) throws IOException {
-		Config.mc.stop();
+		Config.m.stop();
 		getStage(e);
 		GameScene gameScene = new GameScene(10, "Hard");
 		stage.setScene(gameScene.s);

@@ -12,7 +12,7 @@
             <Image url="@../picture/blue.png" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" stroke="BLACK" strokeType="INSIDE" width="100.0" x="250.0" y="60.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="RED" height="20.0" stroke="BLACK" strokeType="INSIDE" width="100.0" x="250.0" y="60.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" stroke="BLACK" strokeType="INSIDE" width="100.0" x="350.0" y="650.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="40.0" stroke="BLACK" strokeType="INSIDE" width="40.0" x="250.0" y="500.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="20.0" stroke="BLACK" strokeType="INSIDE" width="100.0" x="120.0" y="300.0" />
@@ -25,11 +25,6 @@
          </image>
       </ImageView>
       <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" x="440.0" y="170.0">
-         <image>
-            <Image url="@../picture/block.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" x="330.0" y="60.0">
          <image>
             <Image url="@../picture/block.png" />
          </image>
@@ -94,11 +89,6 @@
             <Image url="@../picture/block.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" x="250.0" y="60.0">
-         <image>
-            <Image url="@../picture/block.png" />
-         </image>
-      </ImageView>
       <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" x="480.0" y="170.0">
          <image>
             <Image url="@../picture/block.png" />
@@ -124,11 +114,6 @@
             <Image url="@../picture/block.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" x="270.0" y="60.0">
-         <image>
-            <Image url="@../picture/block.png" />
-         </image>
-      </ImageView>
       <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" x="440.0" y="300.0">
          <image>
             <Image url="@../picture/block.png" />
@@ -149,17 +134,7 @@
             <Image url="@../picture/block.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" x="290.0" y="60.0">
-         <image>
-            <Image url="@../picture/block.png" />
-         </image>
-      </ImageView>
       <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" x="180.0" y="300.0">
-         <image>
-            <Image url="@../picture/block.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" x="310.0" y="60.0">
          <image>
             <Image url="@../picture/block.png" />
          </image>

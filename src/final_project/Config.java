@@ -15,4 +15,6 @@ public class Config {
 	public static boolean cheat = false;
 	
 	public static MusicController mc = new MusicController();
+	
+	public static MusicController m = new MusicController();
 }

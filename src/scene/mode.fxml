@@ -8,16 +8,19 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scene.ModeSelect">
    <children>
-      <ImageView fitHeight="700.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true" />
-      <Button layoutX="386.0" layoutY="134.0" mnemonicParsing="false" onAction="#enterGame" prefHeight="50.0" prefWidth="200.0" text="easy">
+      <ImageView fitHeight="700.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../picture/jump.jpg" />
+         </image></ImageView>
+      <Button blendMode="COLOR_BURN" focusTraversable="false" layoutX="376.0" layoutY="91.0" mnemonicParsing="false" onAction="#enterGame" prefHeight="100.0" prefWidth="200.0" text="easy">
          <font>
             <Font size="24.0" />
          </font></Button>
-      <Button layoutX="386.0" layoutY="350.0" mnemonicParsing="false" onAction="#enterHell" prefHeight="50.0" prefWidth="200.0" text="hell">
+      <Button blendMode="RED" layoutX="376.0" layoutY="334.0" mnemonicParsing="false" onAction="#enterHell" prefHeight="100.0" prefWidth="200.0" text="hell">
          <font>
             <Font size="24.0" />
          </font></Button>
-      <ImageView fitHeight="208.0" fitWidth="394.0" layoutX="14.0" layoutY="271.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="200.0" fitWidth="400.0" layoutX="14.0" layoutY="284.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../picture/hell2u.gif" />
          </image>
@@ -27,5 +30,10 @@
             <Font size="24.0" />
          </font>
       </Button>
+      <ImageView fitHeight="200.0" fitWidth="348.0" layoutX="14.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../picture/easy.jpg" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

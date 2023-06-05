@@ -148,7 +148,7 @@ public class Character {
 		s.setOnMousePressed(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent mouseEvent) {
-			    if (Config.cheat) {
+			    if (Config.cheat && onTheFloor()) {
 					if (!onTheFloor()) {
 						fall.stop();
 					}
@@ -164,9 +164,6 @@ public class Character {
 				    
 				    imgView.setX(x);
 				    imgView.setY(y);
-				    
-				    //System.out.println(x + ", " + y);
-				    
 				    
 				    if (!onTheFloor()) {
 						fall.start();
