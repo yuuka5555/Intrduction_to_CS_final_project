@@ -17,7 +17,7 @@ public class Pause {
 	
 	public void returnToMenu(ActionEvent e) throws IOException {
 		Config.mc.playClick("src/music/click.mp3");
-		Config.m.play("src/music/menu.m4a");
+		Config.m.play("src/music/menu.mp3");
 		rt = FXMLLoader.load(getClass().getResource("menu.fxml"));
 		stg = (Stage)((Node)e.getSource()).getScene().getWindow();
 		sc = new Scene(rt);				
