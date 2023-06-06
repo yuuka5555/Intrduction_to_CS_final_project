@@ -15,7 +15,7 @@ public class Main extends Application{
 	@Override
 	public void start(Stage stage) throws Exception {
 		Image icon = new Image(getClass().getResourceAsStream("/picture/icon.png"));
-		Config.m.play("src/music/menu.m4a");
+		Config.m.play("src/music/menu.mp3");
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/scene/menu.fxml"));
 		Parent root = loader.load();
 		Scene scene = new Scene(root);
