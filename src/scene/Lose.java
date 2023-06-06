@@ -17,7 +17,7 @@ public class Lose {
 	
 	public void returnToMenu(ActionEvent e) throws IOException {
 		Config.mc.playClick("src/music/click.mp3");
-		Config.m.play("src/music/menu.m4a");
+		Config.m.play("src/music/menu.mp3");
 		root = FXMLLoader.load(getClass().getResource("menu.fxml"));
 		stage = (Stage)((Node)e.getSource()).getScene().getWindow();
 		scene = new Scene(root);				

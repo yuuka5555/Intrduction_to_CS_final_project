@@ -21,7 +21,7 @@ public class Main extends Application{
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
 		stage.setResizable(false);
-		stage.setTitle("Leap of Lengend");
+		stage.setTitle("Leap of Legend");
 		stage.getIcons().add(icon);
 		stage.show();
 	}
